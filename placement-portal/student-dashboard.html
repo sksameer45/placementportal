@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Dashboard — Placement Drive Portal</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><span class="dot"></span> PlaceIt</div>
+    <nav>
+      <a href="#" class="nav-link active" data-view="overview">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        <span>Overview</span>
+      </a>
+      <a href="#" class="nav-link" data-view="browse">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <span>Browse Drives</span>
+      </a>
+      <a href="#" class="nav-link" data-view="applications">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h6"/></svg>
+        <span>My Applications</span>
+      </a>
+      <a href="#" class="nav-link" data-view="profile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        <span>Profile</span>
+      </a>
+    </nav>
+    <div class="foot">
+      <div class="who"><b id="sideName">—</b><span id="sideRoll"></span></div>
+      <button class="logout-btn" onclick="logout()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+        Log out
+      </button>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- OVERVIEW -->
+    <section id="view-overview" class="view">
+      <div class="topbar">
+        <div><div class="eyebrow">Dashboard</div><h1 id="welcomeH1">Welcome back</h1></div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card c1"><div class="top"><div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div></div><div class="val" id="stOpenDrives">0</div><div class="lbl">Open drives eligible for you</div></div>
+        <div class="stat-card c2"><div class="top"><div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg></div></div><div class="val" id="stApplied">0</div><div class="lbl">Applications submitted</div></div>
+        <div class="stat-card c3"><div class="top"><div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div></div><div class="val" id="stSelected">0</div><div class="lbl">Offers received</div></div>
+        <div class="stat-card c4"><div class="top"><div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg></div></div><div class="val" id="stPending">0</div><div class="lbl">Awaiting a decision</div></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h3>Your profile snapshot</h3><a href="#" data-view="profile" class="nav-link-inline btn btn-ghost btn-sm">Edit profile</a></div>
+        <div class="panel-body">
+          <div class="grid-2">
+            <div>
+              <div class="text-faint">CGPA</div>
+              <div style="font-family:'Sora';font-size:1.4rem;font-weight:700;" id="snapCgpa">—</div>
+            </div>
+            <div>
+              <div class="text-faint">Branch &amp; backlogs</div>
+              <div style="font-family:'Sora';font-size:1.4rem;font-weight:700;" id="snapBranch">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h3>Recent applications</h3><a href="#" data-view="applications" class="btn btn-ghost btn-sm">View all</a></div>
+        <div class="panel-body no-pad">
+          <table class="data-table" id="recentAppsTable">
+            <thead><tr><th>Drive</th><th>Company</th><th>Applied</th><th>Status</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- BROWSE DRIVES -->
+    <section id="view-browse" class="view" style="display:none;">
+      <div class="topbar">
+        <div><div class="eyebrow">Opportunities</div><h1>Browse Placement Drives</h1></div>
+      </div>
+      <div class="drive-grid" id="driveGrid"></div>
+    </section>
+
+    <!-- MY APPLICATIONS -->
+    <section id="view-applications" class="view" style="display:none;">
+      <div class="topbar">
+        <div><div class="eyebrow">Track progress</div><h1>My Applications</h1></div>
+      </div>
+      <div id="appsList"></div>
+    </section>
+
+    <!-- PROFILE -->
+    <section id="view-profile" class="view" style="display:none;">
+      <div class="topbar">
+        <div><div class="eyebrow">Account</div><h1>My Profile</h1></div>
+      </div>
+      <div class="panel">
+        <div class="panel-body">
+          <form id="profileForm">
+            <div class="field-row">
+              <div class="field"><label>Full name</label><input id="p_name" disabled></div>
+              <div class="field"><label>Roll number</label><input id="p_roll" disabled></div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label>Branch</label>
+                <select id="p_branch">
+                  <option>CSE</option><option>IT</option><option>ECE</option><option>EEE</option><option>MECH</option><option>CIVIL</option>
+                </select>
+              </div>
+              <div class="field"><label>CGPA</label><input type="number" step="0.01" min="0" max="10" id="p_cgpa"></div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label>Active backlogs</label><input type="number" min="0" id="p_backlogs"></div>
+              <div class="field"><label>Phone</label><input id="p_phone"></div>
+            </div>
+            <div class="field"><label>Skills (comma separated)</label><input id="p_skills" placeholder="e.g. Java, SQL, React"></div>
+            <div class="field"><label>Resume link</label><input id="p_resume" placeholder="https://drive.google.com/..."></div>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <span id="profileSaved" class="text-faint" style="margin-left:10px; display:none; color:var(--success);">Saved ✓</span>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Apply confirmation modal -->
+<div class="modal-overlay" id="applyModal">
+  <div class="modal-box">
+    <div class="m-head"><h3 id="applyModalTitle">Apply to drive</h3><button class="icon-x" onclick="closeApplyModal()">✕</button></div>
+    <div class="m-body" id="applyModalBody"></div>
+    <div class="m-foot">
+      <button class="btn btn-ghost" onclick="closeApplyModal()">Cancel</button>
+      <button class="btn btn-primary" id="confirmApplyBtn">Confirm application</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/db.js"></script>
+<script src="js/student.js"></script>
+</body>
+</html>

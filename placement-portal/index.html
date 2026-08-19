@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Placement Drive Portal — Sign In</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="auth-wrap">
+
+  <div class="auth-hero">
+    <div class="brand"><span class="dot"></span> PlaceIt Campus Portal</div>
+
+    <div class="hero-copy">
+      <h1>Where talent meets the right opportunity.</h1>
+      <p>One portal to run the entire placement season — company onboarding, eligibility checks, drive scheduling, and offer tracking, without the spreadsheet chaos.</p>
+
+      <div class="journey-track" aria-hidden="true">
+        <div class="stage done"><div class="line"></div><div class="node"></div><div class="lbl">Registered</div></div>
+        <div class="stage done"><div class="line"></div><div class="node"></div><div class="lbl">Eligible</div></div>
+        <div class="stage done"><div class="line"></div><div class="node"></div><div class="lbl">Applied</div></div>
+        <div class="stage"><div class="line"></div><div class="node"></div><div class="lbl">Interview</div></div>
+        <div class="stage"><div class="line"></div><div class="node"></div><div class="lbl">Selected</div></div>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat"><b>120+</b><span>Companies onboarded</span></div>
+      <div class="stat"><b>4,500+</b><span>Students placed</span></div>
+      <div class="stat"><b>98%</b><span>Eligibility accuracy</span></div>
+    </div>
+  </div>
+
+  <div class="auth-panel">
+    <div class="auth-card">
+      <h2>Welcome back</h2>
+      <div class="sub">Sign in to continue to your dashboard.</div>
+
+      <div class="role-tabs" role="tablist" aria-label="Choose account type">
+        <button type="button" class="active" data-role="student">Student</button>
+        <button type="button" data-role="company">Company</button>
+        <button type="button" data-role="admin">Admin</button>
+      </div>
+
+      <div id="formMsg" class="form-msg err"></div>
+
+      <form id="loginForm">
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" required placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+      </form>
+
+      <div class="auth-foot">
+        New here? <a href="register.html">Create an account</a>
+      </div>
+
+      <div class="demo-box" id="demoBox">
+        <b>Demo student login</b>
+        aditi@college.edu / student123
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/db.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
